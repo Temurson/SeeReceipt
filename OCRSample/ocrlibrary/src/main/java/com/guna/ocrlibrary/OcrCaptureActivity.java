@@ -66,7 +66,7 @@ public final class OcrCaptureActivity extends AppCompatActivity {
     private ScaleGestureDetector scaleGestureDetector;
     private GestureDetector gestureDetector;
 
-    private Button dashbutton;
+    private Button dashboard;
 
     /**
      * Initializes the UI and creates the detector pipeline.
@@ -99,14 +99,14 @@ public final class OcrCaptureActivity extends AppCompatActivity {
                 Snackbar.LENGTH_LONG)
                 .show();
 
-
-        dashbutton.setOnClickListener(new View.OnClickListener() {
+        dashboard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent openDashboard = new Intent(OcrCaptureActivity.this, Dashboard.class);
                 OcrCaptureActivity.this.startActivity(openDashboard);
             }
         });
+
     }
 
     /**
