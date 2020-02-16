@@ -19,6 +19,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * Created by INTEL on 20-03-2018.
  */
@@ -118,6 +121,15 @@ public class OCRCapture {
 
         }
         Log.d("textTest", sS);
+
+        Pattern addressPattern = Pattern.compile("(\\w+(\\s+\\w+)*),\\s\\w\\w\\s\\d{5}");
+        Matcher addressMatcher = addressPattern.matcher(sS);
+        if (addressMatcher.find()) {
+            sS += "FOUND ADDRESS: " + addressMatcher.group(1);
+        } else {
+            sS += "CANNOT FIND ADDRESS";
+        }
+
         return sS;
         //return imageText.toString();
     }
