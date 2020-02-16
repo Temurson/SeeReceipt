@@ -12,6 +12,8 @@ import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.gms.common.api.CommonStatusCodes;
@@ -25,11 +27,23 @@ public class MainActivity extends AppCompatActivity {
     private final int CAMERA_SCAN_TEXT = 0;
     private final int LOAD_IMAGE_RESULTS = 1;
 
+    private Button dashboard;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         textView = findViewById(R.id.textView);
+
+        dashboard = (Button)findViewById(R.id.ID_Dashboard);
+
+        dashboard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent openDashboard = new Intent(MainActivity.this, Dashboard.class);
+                MainActivity.this.startActivity(openDashboard);
+            }
+        });
     }
 
     @Override

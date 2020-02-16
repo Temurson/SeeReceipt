@@ -30,4 +30,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     compile project(path: ':ocrlibrary')
+    compile 'com.google.android.gms:play-services:8.1.0'
 }
