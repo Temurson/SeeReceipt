@@ -21,6 +21,7 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -65,6 +66,8 @@ public final class OcrCaptureActivity extends AppCompatActivity {
     private ScaleGestureDetector scaleGestureDetector;
     private GestureDetector gestureDetector;
 
+    private Button dashbutton;
+
     /**
      * Initializes the UI and creates the detector pipeline.
      */
@@ -95,6 +98,15 @@ public final class OcrCaptureActivity extends AppCompatActivity {
         Snackbar.make(mGraphicOverlay, "Tap to capture. Pinch/Stretch to zoom",
                 Snackbar.LENGTH_LONG)
                 .show();
+
+
+        dashbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent openDashboard = new Intent(OcrCaptureActivity.this, Dashboard.class);
+                OcrCaptureActivity.this.startActivity(openDashboard);
+            }
+        });
     }
 
     /**
